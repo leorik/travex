@@ -74,7 +74,7 @@ else
 
         if (string.IsNullOrWhiteSpace(state))
         {
-            Navigator.NavigateTo("/", true, true);
+            Navigator.NavigateTo("./", true, true);
         }
 
         return StateSerializer.StringToState(state!);
