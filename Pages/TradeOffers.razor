@@ -1,5 +1,6 @@
 ﻿@inject NavigationManager Navigator
 @inject HttpClient Http
+@inject ILogger<TradeOffers> Logger
 
 <PageTitle>Current trade offers</PageTitle>
 <h3>Current trade offers</h3>
@@ -48,22 +49,37 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        if (StateString is null)
-            return;
+        if (string.IsNullOrWhiteSpace(StateString))
+            ForceToMain();
+
+        try
+        {
+            _state = Utils.StringToState(StateString!);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error while parsing exchange state");
+            
+            ForceToMain();
+        }
         
-        _state = Utils.StringToState(StateString);
         var wares = await Http.GetFromJsonAsync<List<Ware>>("trade-data/wares.json");
         var buyMods = await Http.GetFromJsonAsync<List<double>>("trade-data/buy-price-mods.json");
         var sellMods = await Http.GetFromJsonAsync<List<double>>("trade-data/sell-price-mods.json");
 
         if (wares is null || buyMods is null || sellMods is null)
         {
-            throw new InvalidOperationException("Loadable trade data unvailable");
+            throw new InvalidOperationException("Loadable trade data unavailable");
         }
 
-        var exchange = new Exchange(_state);
+        var exchange = new Exchange(_state!);
 
         _listings = exchange.GetMarketListings(wares, buyMods, sellMods);
 
+    }
+
+    private void ForceToMain()
+    {
+        Navigator.NavigateTo("./", true);
     }
 }
