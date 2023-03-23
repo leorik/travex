@@ -1,0 +1,83 @@
+﻿@page "/offers"
+@using System.Web
+
+@inject NavigationManager Navigator
+@inject HttpClient Http
+
+<PageTitle>Current trade offers</PageTitle>
+<h3>Current trade offers</h3>
+
+@if (_listings is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Buy price (Cr)</th>
+                    <th>Buy price factor</th>
+                    <th>Sell price (Cr)</th>
+                    <th>Sell price factor</th>
+                    <th>Available for purchase (t)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var listing in _listings)
+                {
+                    <tr>
+                        <td>@listing.Ware</td>
+                        <td>@listing.BuyPrice</td>
+                        <td>@listing.BuyPriceFactor</td>
+                        <td>@listing.SellPrice</td>
+                        <td>@listing.SellPriceFactor</td>
+                        <td>@listing.AvailableTonnage</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+}
+
+
+@code {
+
+    private ExchangeState? _state;
+
+    private IReadOnlyCollection<Listing>? _listings;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _state = LoadState();
+        var wares = await Http.GetFromJsonAsync<List<Ware>>("trade-data/wares.json");
+        var buyMods = await Http.GetFromJsonAsync<List<double>>("trade-data/buy-price-mods.json");
+        var sellMods = await Http.GetFromJsonAsync<List<double>>("trade-data/sell-price-mods.json");
+
+        if (wares is null || buyMods is null || sellMods is null)
+        {
+            throw new InvalidOperationException("Loadable trade data unvailable");
+        }
+
+        var exchange = new Exchange(_state);
+
+        _listings = exchange.GetMarketListings(wares, buyMods, sellMods);
+
+    }
+
+    private ExchangeState LoadState()
+    {
+        var queryString = new Uri(Navigator.Uri).Query;
+        var queryParams = HttpUtility.ParseQueryString(queryString);
+
+        var state = queryParams["state"];
+
+        if (string.IsNullOrWhiteSpace(state))
+        {
+            Navigator.NavigateTo("/", true, true);
+        }
+
+        return StateSerializer.StringToState(state!);
+    }
+
+}

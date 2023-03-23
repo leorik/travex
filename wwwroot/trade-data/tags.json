@@ -1,0 +1,19 @@
+{
+  "industrial": "Industrial world",
+  "hitech": "High technology world",
+  "asteroid": "Asteroid",
+  "non-industrial": "Non-industrial world",
+  "rich": "Rich world",
+  "hipop": "High population world",
+  "poor": "Poor world",
+  "amber-zone": "Amber zone world",
+  "red-zone": "Red zone world",
+  "agricult": "Agricultural world",
+  "water-world": "Water world",
+  "ice-capped": "Ice-capped world",
+  "desert": "Desert world",
+  "lowpop": "Low population world",
+  "garden": "Garden world",
+  "lowtech": "Low technology world",
+  "fluid-oceans": "Fluid oceans world"
+}

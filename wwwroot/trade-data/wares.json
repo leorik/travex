@@ -1,0 +1,609 @@
+[
+  {
+    "Name": "Common electronics",
+    "BasePrice": 20000,
+    "TonnageDiceCount": 2,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "industrial": 2,
+      "hitech": 3,
+      "rich": 1
+    },
+    "SellTags": {
+      "non-industrial": 2,
+      "lowtech": 1,
+      "poor": 1
+    },
+    "AvailabilityTags": []
+  },
+  {
+    "Name": "Common industrial goods",
+    "BasePrice": 10000,
+    "TonnageDiceCount": 2,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "non-agricult": 2,
+      "industrial": 5
+    },
+    "SellTags": {
+      "non-industrial": 3,
+      "agricult": 2
+    },
+    "AvailabilityTags": []
+  },
+  {
+    "Name": "Common manufactured goods",
+    "BasePrice": 20000,
+    "TonnageDiceCount": 2,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "non-agricult": 2,
+      "industrial": 5
+    },
+    "SellTags": {
+      "non-industrial": 3,
+      "hipop": 2
+    },
+    "AvailabilityTags": []
+  },
+  {
+    "Name": "Common raw materials",
+    "BasePrice": 5000,
+    "TonnageDiceCount": 2,
+    "TonnageMultiplier": 20,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "agricult": 3,
+      "garden": 2
+    },
+    "SellTags": {
+      "industrial": 2,
+      "poor": 2
+    },
+    "AvailabilityTags": []
+  },
+  {
+    "Name": "Common consumables",
+    "BasePrice": 500,
+    "TonnageDiceCount": 2,
+    "TonnageMultiplier": 20,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "agricult": 3,
+      "water-world": 2,
+      "garden": 1,
+      "asteroid": -4
+    },
+    "SellTags": {
+      "asteroid": 1,
+      "fluid-oceans": 1,
+      "ice-capped": 1,
+      "hipop": 1
+    },
+    "AvailabilityTags": []
+  },
+  {
+    "Name": "Common ore",
+    "BasePrice": 1000,
+    "TonnageDiceCount": 2,
+    "TonnageMultiplier": 20,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "asteroid": 4
+    },
+    "SellTags": {
+      "industrial": 3,
+      "non-industrial": 1
+    },
+    "AvailabilityTags": []
+  },
+  {
+    "Name": "Advanced electronics",
+    "BasePrice": 100000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "industrial": 2,
+      "hitech": 3
+    },
+    "SellTags": {
+      "asteroid": 3,
+      "non-industrial": 1,
+      "rich": 2
+    },
+    "AvailabilityTags": ["industrial", "hitech"]
+  },
+  {
+    "Name": "Advanced machine parts",
+    "BasePrice": 75000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "industrial": 2,
+      "hitech": 1
+    },
+    "SellTags": {
+      "asteroid": 2,
+      "non-industrial": 1
+    },
+    "AvailabilityTags": ["industrial", "hitech"]
+  },
+  {
+    "Name": "Advanced manufactured goods",
+    "BasePrice": 100000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "industrial": 1
+    },
+    "SellTags": {
+      "hipop": 1,
+      "rich": 2
+    },
+    "AvailabilityTags": ["industrial", "hitech"]
+  },
+  {
+    "Name": "Advanced weapons",
+    "BasePrice": 150000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "hitech": 2
+    },
+    "SellTags": {
+      "poor": 1,
+      "amber-zone": 2,
+      "red-zone": 4
+    },
+    "AvailabilityTags": ["industrial", "hitech"]
+  },
+  {
+    "Name": "Advanced vehicles",
+    "BasePrice": 180000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "hitech": 2
+    },
+    "SellTags": {
+      "asteroid": 2,
+      "rich": 2
+    },
+    "AvailabilityTags": ["industrial", "hitech"]
+  },
+  {
+    "Name": "Biochemicals",
+    "BasePrice": 5000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "agricult": 1,
+      "water-world": 2
+    },
+    "SellTags": {
+      "industrial": 2
+    },
+    "AvailabilityTags": ["agricult", "water-world"]
+  },
+  {
+    "Name": "Crystals & gems",
+    "BasePrice": 20000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "asteroid": 2,
+      "ice-capped": 1,
+      "desert": 1
+    },
+    "SellTags": {
+      "industrial": 3,
+      "rich": 2
+    },
+    "AvailabilityTags": ["asteroid", "ice-capped", "desert"]
+  },
+  {
+    "Name": "Cybernetics",
+    "BasePrice": 250000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 1,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "hitech": 1
+    },
+    "SellTags": {
+      "asteroid": 1,
+      "ice-capped": 1,
+      "rich": 2
+    },
+    "AvailabilityTags": ["hitech"]
+  },
+  {
+    "Name": "Live animals",
+    "BasePrice": 10000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "agricult": 2
+    },
+    "SellTags": {
+      "lowpop": 3
+    },
+    "AvailabilityTags": ["agricult", "garden"]
+  },
+  {
+    "Name": "Luxury consumables",
+    "BasePrice": 20000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "agricult": 2,
+      "water-world": 1
+    },
+    "SellTags": {
+      "rich": 2,
+      "hipop": 2
+    },
+    "AvailabilityTags": ["agricult", "garden", "water-world"]
+  },
+  {
+    "Name": "Luxury goods",
+    "BasePrice": 200000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 1,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "hipop": 1
+    },
+    "SellTags": {
+      "rich": 4
+    },
+    "AvailabilityTags": ["hipop"]
+  },
+  {
+    "Name": "Medical supplies",
+    "BasePrice": 50000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "hitech": 2
+    },
+    "SellTags": {
+      "rich": 1,
+      "industrial": 2,
+      "poor": 1
+    },
+    "AvailabilityTags": ["hitech", "hipop"]
+  },
+  {
+    "Name": "Petrochemicals",
+    "BasePrice": 10000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "desert": 2
+    },
+    "SellTags": {
+      "agricult": 1,
+      "industrial": 2,
+      "lowtech": 1
+    },
+    "AvailabilityTags": ["desert", "fluid-oceans", "ice-capped", "water-world"]
+  },
+  {
+    "Name": "Pharmaceuticals",
+    "BasePrice": 100000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 1,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "asteroid": 2,
+      "highpop": 1
+    },
+    "SellTags": {
+      "rich": 2,
+      "lowtech": 1
+    },
+    "AvailabilityTags": ["asteroid", "desert", "hipop", "water-world"]
+  },
+  {
+    "Name": "Polymers",
+    "BasePrice": 7000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "industrial": 1
+    },
+    "SellTags": {
+      "rich": 2,
+      "non-industrial": 1
+    },
+    "AvailabilityTags": ["industrial"]
+  },
+  {
+    "Name": "Precious metals",
+    "BasePrice": 50000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 1,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "asteroid": 3,
+      "desert": 1,
+      "ice-capped": 2
+    },
+    "SellTags": {
+      "rich": 3,
+      "industrial": 2,
+      "hitech": 1
+    },
+    "AvailabilityTags": ["asteroid", "desert", "ice-capped", "fluid-oceans"]
+  },
+  {
+    "Name": "Radioactives",
+    "BasePrice": 1000000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 1,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "asteroid": 2,
+      "lowpop": 2
+    },
+    "SellTags": {
+      "hitech": 3,
+      "industrial": 3,
+      "non-industrial": -2,
+      "agricult": -3
+    },
+    "AvailabilityTags": ["asteroid", "desert", "lowpop"]
+  },
+  {
+    "Name": "Robots",
+    "BasePrice": 400000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "industrial": 1
+    },
+    "SellTags": {
+      "hitech": 1,
+      "agricult": 2
+    },
+    "AvailabilityTags": ["industrial"]
+  },
+  {
+    "Name": "Spices",
+    "BasePrice": 6000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "desert": 2
+    },
+    "SellTags": {
+      "hipop": 2,
+      "rich": 3,
+      "poor": 3
+    },
+    "AvailabilityTags": ["garden", "desert", "water-world"]
+  },
+  {
+    "Name": "Textiles",
+    "BasePrice": 3000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 20,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "agricult": 7
+    },
+    "SellTags": {
+      "hipop": 3,
+      "non-agricult": 2
+    },
+    "AvailabilityTags": ["agricult", "non-industrial"]
+  },
+  {
+    "Name": "Uncommon ore",
+    "BasePrice": 5000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 20,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "asteroid": 4
+    },
+    "SellTags": {
+      "industrial": 3,
+      "non-industrial": 1
+    },
+    "AvailabilityTags": ["asteroid", "ice-capped"]
+  },
+  {
+    "Name": "Uncommon raw materials",
+    "BasePrice": 20000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "agricult": 2,
+      "water-world": 1
+    },
+    "SellTags": {
+      "industrial": 2,
+      "hitech": 1
+    },
+    "AvailabilityTags": ["agricult", "desert", "water-world"]
+  },
+  {
+    "Name": "Wood",
+    "BasePrice": 1000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 20,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "agricult": 6
+    },
+    "SellTags": {
+      "industrial": 1,
+      "rich": 2
+    },
+    "AvailabilityTags": ["agricult", "garden"]
+  },
+  {
+    "Name": "Vehicles",
+    "BasePrice": 15000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 10,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": false,
+    "BuyTags": {
+      "industrial": 2,
+      "hitech": 1
+    },
+    "SellTags": {
+      "non-industrial": 2,
+      "hipop": 1
+    },
+    "AvailabilityTags": ["industrial", "hitech"]
+  },
+  {
+    "Name": "Illegal biochemicals",
+    "BasePrice": 50000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": true,
+    "BuyTags": {
+      "water-world": 2
+    },
+    "SellTags": {
+      "industrial": 6
+    },
+    "AvailabilityTags": ["agricult", "water-world"]
+  },
+  {
+    "Name": "Cybernetics, illegal",
+    "BasePrice": 250000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 1,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": true,
+    "BuyTags": {
+      "hitech": 1
+    },
+    "SellTags": {
+      "asteroid": 4,
+      "ice-capped": 4,
+      "rich": 8,
+      "amber-zone": 6,
+      "red-zone": 6
+    },
+    "AvailabilityTags": ["hitech"]
+  },
+  {
+    "Name": "Drugs, illegal",
+    "BasePrice": 100000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 1,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": true,
+    "BuyTags": {
+      "asteroid": 1,
+      "desert": 1,
+      "garden": 1,
+      "water-world": 1
+    },
+    "SellTags": {
+      "hipop": 6,
+      "rich": 6
+    },
+    "AvailabilityTags": ["asteroid", "desert", "hipop", "water-world"]
+  },
+  {
+    "Name": "Luxuries, illegal",
+    "BasePrice": 50000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 1,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": true,
+    "BuyTags": {
+      "agricult": 2,
+      "water-world": 1
+    },
+    "SellTags": {
+      "hipop": 4,
+      "rich": 6
+    },
+    "AvailabilityTags": ["agricult", "garden", "water-world"]
+  },
+  {
+    "Name": "Weapons, illegal",
+    "BasePrice": 150000,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 5,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": true,
+    "BuyTags": {
+      "hitech": 2
+    },
+    "SellTags": {
+      "poor": 6,
+      "amber-zone": 8,
+      "red-zone": 10
+    },
+    "AvailabilityTags": ["industrial", "hitech"]
+  },
+  {
+    "Name": "Exotics",
+    "BasePrice": 100,
+    "TonnageDiceCount": 1,
+    "TonnageMultiplier": 1,
+    "MaxLawLevel": 0,
+    "IsUniversallyIllegal": true,
+    "BuyTags": {},
+    "SellTags": {},
+    "AvailabilityTags": []
+  }
+]
