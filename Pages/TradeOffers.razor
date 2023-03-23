@@ -1,7 +1,4 @@
-﻿@page "/offers"
-@using System.Web
-
-@inject NavigationManager Navigator
+﻿@inject NavigationManager Navigator
 @inject HttpClient Http
 
 <PageTitle>Current trade offers</PageTitle>
@@ -42,14 +39,19 @@ else
 
 
 @code {
-
+    [Parameter]
+    public string? StateString { get; set; }
+    
     private ExchangeState? _state;
 
     private IReadOnlyCollection<Listing>? _listings;
 
     protected override async Task OnInitializedAsync()
     {
-        _state = LoadState();
+        if (StateString is null)
+            return;
+        
+        _state = Utils.StringToState(StateString);
         var wares = await Http.GetFromJsonAsync<List<Ware>>("trade-data/wares.json");
         var buyMods = await Http.GetFromJsonAsync<List<double>>("trade-data/buy-price-mods.json");
         var sellMods = await Http.GetFromJsonAsync<List<double>>("trade-data/sell-price-mods.json");
@@ -64,20 +66,4 @@ else
         _listings = exchange.GetMarketListings(wares, buyMods, sellMods);
 
     }
-
-    private ExchangeState LoadState()
-    {
-        var queryString = new Uri(Navigator.Uri).Query;
-        var queryParams = HttpUtility.ParseQueryString(queryString);
-
-        var state = queryParams["state"];
-
-        if (string.IsNullOrWhiteSpace(state))
-        {
-            Navigator.NavigateTo("./", true, true);
-        }
-
-        return StateSerializer.StringToState(state!);
-    }
-
 }

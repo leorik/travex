@@ -1,4 +1,7 @@
-﻿namespace TravEx;
+﻿using System.Web;
+using Microsoft.AspNetCore.Components;
+
+namespace TravEx;
 
 using Base62;
 
@@ -6,7 +9,7 @@ using MessagePack;
 
 using TravEx.Model;
 
-public static class StateSerializer
+public static class Utils
 {
     public static string ToPortableString(this ExchangeState state)
     {
@@ -20,5 +23,14 @@ public static class StateSerializer
         var binaryState = portableString.FromBase62();
 
         return MessagePackSerializer.Deserialize<ExchangeState>(binaryState);
+    }
+
+    public static string? GetStateFromQuery(NavigationManager navigationManager)
+    {
+        
+        var queryString = new Uri(navigationManager.Uri).Query;
+        var queryParams = HttpUtility.ParseQueryString(queryString);
+
+        return queryParams["offers"];
     }
 }

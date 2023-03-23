@@ -1,0 +1,111 @@
+﻿<h3>TraderContact</h3>
+
+@inject NavigationManager Navigator
+@inject HttpClient Http
+
+<PageTitle>Make trading contact</PageTitle>
+
+<h3>Describe сircumstances</h3>
+<EditForm Model="@_exchangeState" OnSubmit="@HandleSubmit" class="form-check">
+    <div class="form-group">
+        <label>
+            Your Broker skill:
+            <InputNumber id="PlayerBrokerSkill" @bind-Value="_exchangeState.PlayerBrokerSkill"/>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Other trader's Broker skill:
+            <InputNumber id="ContractorBrokerSkill" @bind-Value="_exchangeState.ContractorBrokerSkill"/>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            World population code:
+            <InputNumber id="WorldPopulation" @bind-Value="_exchangeState.WorldPopulation"/>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Local law code:
+            <InputNumber id="LocalLawLevel" @bind-Value="_exchangeState.LocalLawLevel"/>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Is this a black market deal?
+            <InputCheckbox id="IsBlackMarket" @bind-Value="_exchangeState.IsBlackMarket"/>
+        </label>
+    </div>
+
+    @if (_tags is not null)
+    {
+        <div class="form-group">
+
+            <h5>You now at:</h5>
+
+            @foreach (var tag in _tags)
+            {
+                <div>
+                    <label>
+                        @tag.Value
+                        <input type="checkbox"
+                               @onchange="eventArgs => { OnTagChanged(tag.Key, eventArgs?.Value); }"/>
+                    </label>
+                </div>
+            }
+        </div>
+    }
+
+
+    <div>
+        <button type="submit" class="btn btn-primary">Get me to trade offers</button>
+    </div>
+</EditForm>
+
+
+@code {
+
+    private readonly ExchangeState _exchangeState = new();
+
+    private Dictionary<string, string>? _tags;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _exchangeState.RngSeed = new Random().Next();
+
+        _tags = await Http.GetFromJsonAsync<Dictionary<string, string>>("trade-data/tags.json");
+
+        await base.OnInitializedAsync();
+    }
+
+    private void OnTagChanged(string tag, object? pressed)
+    {
+        var isTagActive = pressed is not null && (bool) pressed;
+
+        if (isTagActive)
+        {
+            _exchangeState.WorldTags.Add(tag);
+        }
+        else
+        {
+            _exchangeState.WorldTags.Remove(tag);
+        }
+    }
+
+    private void HandleSubmit()
+    {
+        var stateString = _exchangeState.ToPortableString();
+
+        NavigateToOffers(stateString);
+    }
+
+    private void NavigateToOffers(string state)
+    {
+        Navigator.NavigateTo($"./?offers={state}", true);
+    }
+}
