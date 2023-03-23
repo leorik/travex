@@ -5,56 +5,56 @@
 
 <PageTitle>Make trading contact</PageTitle>
 
-<h3>Make contact with trader</h3>
-<EditForm Model="@_exchangeState" OnSubmit="@HandleSubmit">
-    <div>
+<h3>Describe сircumstances</h3>
+<EditForm Model="@_exchangeState" OnSubmit="@HandleSubmit" class="form-check">
+    <div class="form-group">
         <label>
-            Player Broker skill:
+            Your Broker skill:
             <InputNumber id="PlayerBrokerSkill" @bind-Value="_exchangeState.PlayerBrokerSkill"/>
         </label>
     </div>
 
-    <div>
+    <div class="form-group">
         <label>
-            Contact broker skill:
+            Other trader's Broker skill:
             <InputNumber id="ContractorBrokerSkill" @bind-Value="_exchangeState.ContractorBrokerSkill"/>
         </label>
     </div>
 
-    <div>
+    <div class="form-group">
         <label>
             World population code:
             <InputNumber id="WorldPopulation" @bind-Value="_exchangeState.WorldPopulation"/>
         </label>
     </div>
 
-    <div>
+    <div class="form-group">
         <label>
             Local law code:
             <InputNumber id="LocalLawLevel" @bind-Value="_exchangeState.LocalLawLevel"/>
         </label>
     </div>
 
-    <div>
+    <div class="form-group">
         <label>
-            Is black market deal?
+            Is this a black market deal?
             <InputCheckbox id="IsBlackMarket" @bind-Value="_exchangeState.IsBlackMarket"/>
         </label>
     </div>
 
     @if (_tags is not null)
     {
-        <div>
+        <div class="form-group">
 
-            <h4>World tags:</h4>
+            <h5>You now at:</h5>
 
             @foreach (var tag in _tags)
             {
                 <div>
                     <label>
                         @tag.Value
-                        <input type="checkbox" 
-                                           @onchange="eventArgs => { OnTagChanged(tag.Key, eventArgs.Value); }" />  
+                        <input type="checkbox"
+                               @onchange="eventArgs => { OnTagChanged(tag.Key, eventArgs?.Value); }"/>
                     </label>
                 </div>
             }
@@ -63,7 +63,7 @@
 
 
     <div>
-        <button type="submit">Make</button>
+        <button type="submit">Get me to trade offers</button>
     </div>
 </EditForm>
 
@@ -83,9 +83,9 @@
         await base.OnInitializedAsync();
     }
 
-    private void OnTagChanged(string tag, object pressed)
+    private void OnTagChanged(string tag, object? pressed)
     {
-        var isTagActive = (bool)pressed;
+        var isTagActive = pressed is not null && (bool) pressed;
 
         if (isTagActive)
         {
